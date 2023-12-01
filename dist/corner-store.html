@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <title>Corner Store</title>
+</head>
+<style>
+  #btn {
+    border-radius: 100%;
+    padding: 20px;
+    background-color: rgb(194, 194, 194);
+  }
+
+  .red {
+    color: red;
+
+  }
+
+  @media screen and (max-width:1052px) {
+    #products-header {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #product_sort {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #products_container {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width:782px) {
+    #nav {
+      padding: 0;
+      margin: 0;
+    }
+  }
+</style>
+
+<body class="relative">
+  <div class="main">
+    <div id="nav"
+      class="flex border-2 border-red-700 flex-wrap top-0 left-0 right-0 h-16 w-full justify-between px-6 pl-32">
+      <div
+        class="md:flex border-2 border-green-500 border-solid justify-between items-center text-base text-gray-800 pt-4 md:pt-0">
+        <a href="" class="inline-block border-2 border-black py-2 px-4">Shop</a>
+        <a href="" class="inline-block border-2 border-black py-2 px-4">About</a>
+      </div>
+      <img class="self-center border-2 border-blue-500 border-solid w-7 h-7" src="market.png" alt="">
+      <div class="flex flex-wrap border-2 border-green-500 border-solid justify-center items-center px-24 gap-3">
+        <a href=""><img src="user.png" alt=""></a>
+        <a href=""><img src="shopping-cart.png" alt=""></a>
+      </div>
+    </div>
+    <section class="carousel relative w-full " style="height: 60vh; max-width:1600px;">
+      <!-- Left -->
+      <div>
+        <a class="left-btn btn absolute z-10 " href="#"><img src="../Files/left-chevron.png" alt="left"></a>
+      </div>
+      <!-- Text -->
+      <style>
+        .h2 {
+          top: 1vh;
+          margin: 0 10px;
+          font-size: 24px;
+        }
+
+        .txt .a {
+          top: 10vh;
+          margin: 0 20px;
+          font-size: 20px;
+          color: #4b5563;
+          border-bottom: 1px solid #4b5563;
+        }
+
+        .chevron1 {
+          top: 22vh;
+          left: 1rem;
+        }
+
+        .chevron2 {
+          top: 22vh;
+          right: 1rem;
+        }
+
+        @media screen and (max-width:470px) {
+          .txt .a {
+            top: 21vh;
+          }
+        }
+
+        @media screen and (min-width:768px) {
+          .h2 {
+            top: 16vh;
+            left: 7rem;
+            margin: 0;
+          }
+
+          .txt .a {
+            top: 24vh;
+            left: 7rem;
+            margin: 0;
+          }
+        }
+
+        @media screen and (min-width:1024px) {
+          .h2 {
+            top: 16vh;
+            left: 5rem;
+          }
+
+          .txt .a {
+            top: 24vh;
+            left: 5rem;
+          }
+        }
+      </style>
+
+      <style>
+        /* body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        } */
+        /* .carousel {
+          border: 1px solid red;
+          width: 500px;
+          height: 500px;
+          position: relative;
+        } */
+
+        .left-btn {
+          position: absolute;
+          left: 1rem;
+          top: 50%;
+        }
+
+        .right-btn {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+        }
+
+        .btn {
+          padding: 10px;
+          border: 0px solid #1f2937;
+          border-radius: 50%;
+          background-color: white;
+        }
+
+        .current-image {
+          width: 100%;
+          height: 60vh;
+          object-fit: cover;
+          object-position: center -50px;
+        }
+
+        .carimgdiv {
+          /* height: 50vh; */
+          /* position: absolute;
+          overflow: hidden;
+           */
+          /* height: 400px; */
+          /* clip: rect(100px, 0, 100px, 0); */
+        }
+      </style>
+      <div class="txt flex flex-col justify-center items-center top-44">
+        <h2 class="h2 absolute z-10">
+          Stripy Zig Zag Jigsaw Pillow and Duvet Set
+        </h2>
+        <a class="a absolute z-10 ml-5 md:ml-16 top-56" href="#">View Product</a>
+      </div>
+      <!-- <div class="z-10 md:ml-16 top-44">
+          </div> -->
+      <div class="border-2 border-blue-600 carimgdiv">
+        <img class="current-image" src="" alt="">
+      </div>
+      <!-- Right -->
+      <div>
+        <a class="right-btn btn absolute z-10 right-0" href="#"><img src="../Files/chevron.png" alt="right"></a>
+      </div>
+    </section>
+    <div id="products_container" class="border-2 border-purple-700 mx-20 px-32">
+      <div id="products-header" class="border-2 border-blue-600 flex flex-row justify-between items-center mx-24">
+        <h2>STORE</h2>
+        <div id="product_sort">
+          <div class="flex flex-row gap-1 items-center">
+            <label class="ml-2 text-sm" for="max-price">Max Price:</label>
+            <input class="bg-gray-200 rounded-md w-9 h-6" type="number" name="max-price" id="max-price" />
+            <label class="ml-2 text-sm" for="search-term">Search: </label>
+            <input class="bg-gray-200 rounded-md h-6" type="text" name="search-term" id="search-term" />
+            <div class="border-2 border-black flex flex-col items-end justify-between">
+              <button class="border-2 border-black sort-asc p-2 bg-gray-200"><img class="w-2 h-2"
+                  src="caret-arrow-up.png" alt="ascending"></button>
+              <button class="border-2 border-black sort-desc p-2 bg-gray-200"><img class="w-2 h-2"
+                  src="down-filled-triangular-arrow.png" alt="descending"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cards-grid flex flex-wrap justify-center items-center gap-5"></div>
+      <div class="flex justify-center p-5">
+        <button onclick="showCart()" class="checkout p-3 rounded-3xl bg-green-200">Checkout</button>
+      </div>
+      <div class="cart absolute h-full w-full top-0 left-0 right-0 hidden bg-white z-50">
+        <div class="flex justify-between px-20 font-bold font-mono text-xl bg-gray-400">
+          <h2 class="font-serif text-2xl">Cart</h2>
+          <p onclick="hideCart()">X</p>
+        </div>
+        <div class="cart-contents">
+        </div>
+        <div class="flex justify-end px-20">
+          <div class="cart-total bg-green-200 font-serif text-xl my-6">
+            Total: $0
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let products = [
+        {
+          name: 'product 1',
+          price: 39,
+          img: 'product1.jpg',
+          id: "product_1"
+        },
+        {
+          name: 'product 2',
+          price: 49,
+          img: 'product2.jpg',
+          id: "product_2"
+        },
+        {
+          name: 'product 3',
+          price: 99,
+          img: 'product3.jpeg',
+          id: "product_3"
+        },
+        {
+          name: 'product 4',
+          price: 99,
+          img: 'product4.jpg',
+          id: "product_4"
+        },
+        {
+          name: 'product 5',
+          price: 99,
+          img: 'product5.jpg',
+          id: "product_5"
+        },
+        {
+          name: 'product 6',
+          price: 99,
+          img: 'product6.jpeg',
+          id: "product_6"
+        },
+        {
+          name: 'product 7',
+          price: 99,
+          img: 'product7.jpg',
+          id: "product_7"
+        },
+        {
+          name: 'product 8',
+          price: 99,
+          img: 'product8.png',
+          id: "product_8"
+        }
+      ];
+
+      let cardsGrid = document.querySelector('.cards-grid');
+      function populateProductsGrid(productsParam) {
+        cardsGrid.innerHTML = '';
+        productsParam.forEach(function (product) {
+          let cardHTML = createHTMLProductCard(product);
+          cardsGrid.innerHTML = cardsGrid.innerHTML + cardHTML;
+        });
+      }
+      populateProductsGrid(products);
+
+      function filterProducts(products, maxPrice, searchTerm) {
+        // filter by price
+        let filteredProducts = products.filter(function (product) {
+          if (maxPrice <= 0 || isNaN(maxPrice)) {
+            return true;
+          }
+
+          // product.price
+          if (product.price < maxPrice) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+
+        // filter by search
+        filteredProducts = filteredProducts.filter(function (product) {
+          if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+
+        return filteredProducts;
+      }
+
+      let maxPriceInputElement = document.querySelector('#max-price');
+      let searchTermElement = document.querySelector('#search-term');
+
+      maxPriceInputElement.addEventListener('input', function () {
+        let filteredProducts = filterProducts(products, maxPriceInputElement.value, searchTermElement.value);
+        populateProductsGrid(filteredProducts);
+      });
+
+      searchTermElement.addEventListener('input', function () {
+        populateProductsGrid(filterProducts(products, maxPriceInputElement.value, searchTermElement.value));
+      });
+      function createHTMLProductCard(product) {
+        let cardHTML = `
+        <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="${product.img}" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">${product.name}</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">Total: $${product.price}</div>
+              <button onclick="addItemToCart('${product.id}')" data-product-identifier="${product.id}" class="bg-blue-200 p-1" > + </button>
+            </div>
+        </div>
+        `;
+        return cardHTML;
+      }
+
+      function sortPriceAsc(arrayOfItems) {
+        let sortedArr = arrayOfItems.sort(function (prod1, prod2) {
+          return prod1.price - prod2.price;
+        });
+
+        return sortedArr;
+      }
+
+      function sortPriceDesc(arrayOfItems) {
+        let sortedArr = arrayOfItems.sort(function (prod1, prod2) {
+          return prod2.price - prod1.price;
+        });
+
+        return sortedArr;
+      }
+      document.querySelector('.sort-asc').addEventListener('click', function () {
+        let sortedArr = sortPriceAsc(products)
+        populateProductsGrid(sortedArr)
+      })
+      document.querySelector('.sort-desc').addEventListener('click', function () {
+        let sortedArr = sortPriceDesc(products)
+        populateProductsGrid(sortedArr)
+      })
+
+      //   //add to cart functionality
+      //   document.querySelectorAll('.card button').forEach(function(addToCartBtn){
+      //     addToCartBtn.addEventListener('click', function(){addItemToCart(addToCartBtn.dataset.productIdentifier)})
+      //   })
+
+      let cart = [];
+      function addItemToCart(productId) {
+        cart.push(productId)
+        updateCartContentsUI()
+        updateCartTotalUI()
+      }
+
+      function removeItemFromCart(productID) {
+        // Find the index of the first occurrence of the productID in the cart
+        const indexToRemove = cart.indexOf(productID);
+
+        // If the productID is found in the cart, remove only that specific item
+        if (indexToRemove !== -1) {
+          cart.splice(indexToRemove, 1);
+        }
+
+        updateCartContentsUI();
+        updateCartTotalUI();
+      }
+
+
+      let cartContentsElement = document.querySelector(".cart-contents");
+      function updateCartUI() {
+        cartContentsElement.innerHTML = '';
+        cart.forEach(function (cartItem) {
+          let cartItemUIElement = generateCartItemHTML(cartItem)
+          cartContentsElement += cartItemUIElement;
+        })
+      }
+
+      function updateCartContentsUI() {
+        cartContentsElement.innerHTML = '';
+        cart.forEach(function (cartItem) {
+          let cartItemUIElement = generateCartItemHTML(cartItem)
+          if (cartItemUIElement == false) {
+            // TODO display message telling user that product was not found
+            console.log("item not found")
+          } else {
+            cartContentsElement.innerHTML = cartContentsElement.innerHTML + cartItemUIElement
+          }
+        })
+      }
+
+      let totalPriceUIElement = document.querySelector('.cart-total')
+      function updateCartTotalUI() {
+
+        let totalPrice = 0;
+        // calculcate total price
+        cart.forEach(function (cartItemID) {
+          let product = products.find(function (product) {
+            return product.id === cartItemID
+          })
+
+          if (!product) {
+            return false;
+          }
+
+          let price = product.price;
+          totalPrice = totalPrice + price;
+        })
+
+        // replace HTML
+        totalPriceUIElement.innerHTML = `Total: $${totalPrice}`
+      }
+
+      function generateCartItemHTML(itemID) {
+        let product = products.find(function (product) {
+          return product.id === itemID
+        })
+
+        if (!product) {
+          return false;
+        }
+
+        let cartItemHTML = `
+          <div class="cart-item flex shadow-md">
+            <div class="cart-item-img-wrapper border h-44 w-44 overflow-hidden">
+              <img class="h-full" src="${product.img}" alt="" />
+            </div>
+            <div class="cart-item-details p-2">
+              <h3 class="product-name">${product.name}</h3>
+              <div class="price">$${product.price}</div>
+              </div>
+              <button class="bg-red-500 h-7 self-center justify-self-end" onclick="removeItemFromCart('${product.id}')">Remove</button>
+              </div>
+              `
+        return cartItemHTML;
+      }
+
+      let cartElement = document.querySelector('.cart')
+      // show cart UI when user click on checkout
+      function showCart() {
+        // select cart element
+        cartElement.classList.remove('hidden')
+      }
+
+      function hideCart() {
+        cartElement.classList.add('hidden')
+      }
+
+      // managing likes
+      const hearts = document.querySelectorAll('.fa-heart');
+      function addEventHandler(htmlElement) {
+        htmlElement.addEventListener('click', function () {
+          htmlElement.classList.toggle('red');
+        });
+      }
+      hearts.forEach(addEventHandler);
+      // caruuuusal
+
+      let imageSources = ['../Files/crousel/pillow5.png',
+        '../Files/crousel/pillow1.png',
+        '../Files/crousel/pillow2.png',
+        '../Files/crousel/pillow4.png'];
+
+      let imgIndex = 0;
+
+      updateUI();
+
+      function moveRight() {
+        imgIndex = imgIndex + 1;
+        if (imgIndex > imageSources.length - 1) {
+          imgIndex = 0;
+        }
+        updateUI();
+      }
+
+      function moveLeft() {
+        imgIndex = imgIndex - 1;
+        if (imgIndex < 0) {
+          imgIndex = imageSources.length - 1;
+        }
+        updateUI();
+      }
+
+      function updateUI() {
+        document.querySelector('.carousel .carimgdiv img').src = imageSources[imgIndex];
+      }
+
+      let leftBtn = document.querySelector('.left-btn');
+      leftBtn.addEventListener('click', moveLeft);
+
+      let rightBtn = document.querySelector('.right-btn');
+      rightBtn.addEventListener('click', moveRight);
+    </script>
+</body>
+
+</html>
