@@ -18,7 +18,6 @@
 
   .red {
     color: red;
-
   }
 
   @media screen and (max-width:1052px) {
@@ -49,19 +48,19 @@
 <body class="relative">
   <div class="main">
     <div id="nav"
-      class="flex border-2 border-red-700 flex-wrap top-0 left-0 right-0 h-16 w-full justify-between px-6 pl-32">
+      class="flex flex-wrap top-0 left-0 right-0 h-16 w-full justify-between px-6 pl-28">
       <div
-        class="md:flex border-2 border-green-500 border-solid justify-between items-center text-base text-gray-800 pt-4 md:pt-0">
-        <a href="" class="inline-block border-2 border-black py-2 px-4">Shop</a>
-        <a href="" class="inline-block border-2 border-black py-2 px-4">About</a>
+        class="md:flex border-solid justify-between items-center text-base text-gray-800 pt-4 md:pt-0">
+        <a href="" class="inline-block py-2 px-4">Shop</a>
+        <a href="" class="inline-block py-2 px-4">About</a>
       </div>
-      <img class="self-center border-2 border-blue-500 border-solid w-7 h-7" src="market.png" alt="">
-      <div class="flex flex-wrap border-2 border-green-500 border-solid justify-center items-center px-24 gap-3">
+      <img class="self-center w-7 h-7" src="market.png" alt="">
+      <div class="flex flex-wrap justify-center items-center px-24 gap-3">
         <a href=""><img src="user.png" alt=""></a>
         <a href=""><img src="shopping-cart.png" alt=""></a>
       </div>
     </div>
-    <section class="carousel relative w-full " style="height: 60vh; max-width:1600px;">
+    <section class="carousel relative w-full " style="height: fit; max-width:1600px;">
       <!-- Left -->
       <div>
         <a class="left-btn btn absolute z-10 " href="#"><img src="../Files/left-chevron.png" alt="left"></a>
@@ -160,18 +159,18 @@
 
         .current-image {
           width: 100%;
-          height: 60vh;
+          height: 70vh;
           object-fit: cover;
-          object-position: center -50px;
+          object-position: center -100px;
         }
 
         .carimgdiv {
-          /* height: 50vh; */
-          /* position: absolute;
+          /* 
+          height: 400px; 
+          position: absolute;
           overflow: hidden;
-           */
-          /* height: 400px; */
-          /* clip: rect(100px, 0, 100px, 0); */
+          height: 50vh; 
+          clip: rect(100px, 0, 100px, 0); */
         }
       </style>
       <div class="txt flex flex-col justify-center items-center top-44">
@@ -182,7 +181,7 @@
       </div>
       <!-- <div class="z-10 md:ml-16 top-44">
           </div> -->
-      <div class="border-2 border-blue-600 carimgdiv">
+      <div class=" carimgdiv">
         <img class="current-image" src="" alt="">
       </div>
       <!-- Right -->
@@ -190,16 +189,16 @@
         <a class="right-btn btn absolute z-10 right-0" href="#"><img src="../Files/chevron.png" alt="right"></a>
       </div>
     </section>
-    <div id="products_container" class="border-2 border-purple-700 mx-20 px-32">
-      <div id="products-header" class="border-2 border-blue-600 flex flex-row justify-between items-center mx-24">
-        <h2>STORE</h2>
+    <div id="products_container" class="border-2 mx-20 px-32">
+      <div id="products-header" class=" flex flex-row justify-between items-center mx-20 px-3">
+        <h2 class="font-bold">STORE</h2>
         <div id="product_sort">
           <div class="flex flex-row gap-1 items-center">
             <label class="ml-2 text-sm" for="max-price">Max Price:</label>
             <input class="bg-gray-200 rounded-md w-9 h-6" type="number" name="max-price" id="max-price" />
             <label class="ml-2 text-sm" for="search-term">Search: </label>
             <input class="bg-gray-200 rounded-md h-6" type="text" name="search-term" id="search-term" />
-            <div class="border-2 border-black flex flex-col items-end justify-between">
+            <div class=" flex flex-col items-end justify-between">
               <button class="border-2 border-black sort-asc p-2 bg-gray-200"><img class="w-2 h-2"
                   src="caret-arrow-up.png" alt="ascending"></button>
               <button class="border-2 border-black sort-desc p-2 bg-gray-200"><img class="w-2 h-2"
